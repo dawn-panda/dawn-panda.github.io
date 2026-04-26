@@ -40,16 +40,6 @@
 
 <hr class="section-divider">
 
-<!-- THREE THRUSTS -->
-<section>
-  <div class="section-inner">
-    <div class="eyebrow">Project overview</div>
-    Networked, multimodal sensing and associated data fusion are increasingly important across the nonproliferation mission space, particularly as AI-enabled methods become central to detection, characterization, and decision-support workflows. However, the development, validation, and testing of these methods require large volumes of synchronized, labeled, multimodal data collected under realistic operating conditions.
-    The PANDAWN network addresses this need by enabling data collection across a wide geographic area, producing a diverse dataset that supports both multimodal fusion research and the exploration of geospatial data processing techniques. Its ability to support long-term, continuous data collection further allows environmental, meteorological, and seasonal conditions to be sampled over time, enabling the evaluation of temporal and spatial trends in ways that were previously not possible.
-    Together, these capabilities provide a unique real-world dataset shaped by complex operational and environmental variables that are difficult to accurately reproduce through simulation alone. This makes PANDAWN a valuable platform for advancing AI model development, algorithm testing, and data fusion approaches relevant to nonproliferation applications.
-  </div>
-</section>
-
 <hr class="section-divider">
 
 <!-- PANDAWN NETWORK -->
@@ -66,66 +56,69 @@
       multimodal data collection and algorithm development in realistic urban environments.
     </p>
 
-    <div class="feature-layout">
-      <div class="feature-copy">
-        <h3>Network capabilities</h3>
-
-        <ul class="feature-list">
-          <li>
-            <strong>Distributed urban sensing:</strong>
-            Strategically placed nodes provide geographically diverse measurements across Chicago.
-          </li>
-          <li>
-            <strong>Built-in edge computing:</strong>
-            AI/ML and conventional computing can be performed close to the data source.
-          </li>
-          <li>
-            <strong>Software and hardware extensibility:</strong>
-            The network can be updated over time to support new sensors, workflows, and algorithms,
-            within hardware and software limits.
-          </li>
-          <li>
-            <strong>Closed-loop edge-cloud operation:</strong>
-            Jobs can be scheduled and coordinated across edge nodes and cloud resources.
-          </li>
-          <li>
-            <strong>Context-aware execution:</strong>
-            Edge nodes can support adaptive job execution based on local data, system state,
-            or broader network context.
-          </li>
-          <li>
-            <strong>Network-wide aggregation and analysis:</strong>
-            Data from multiple nodes can be aggregated for cloud-based analysis, visualization,
-            and algorithm evaluation.
-          </li>
+    <div class="goal-grid network-capabilities-grid">
+      <article class="goal-card">
+        <h3>Distributed urban sensing</h3>
+        <ul>
+          <li>Strategically placed nodes provide geographically diverse measurements across Chicago.</li>
+          <li>The network supports data collection across varied urban environments and deployment contexts.</li>
         </ul>
-      </div>
+      </article>
 
-      <figure class="feature-media">
-        <img src="images/pandawn-map.png" alt="Map showing PANDAWN network sensing locations across Chicago">
-        <figcaption>PANDAWN network deployment map showing sensor node locations in Chicago.</figcaption>
-         <ul class="map-cluster-list">
-          <li style="--bullet-color: #2563eb;">
-            Three clusters and two uniquely placed individual nodes
-          </li>
-          <li style="--bullet-color: #16a34a;">
-            A medical campus pair
-          </li>
-          <li style="--bullet-color: #dc2626;">
-            A dense downtown cluster
-          </li>
-          <li style="--bullet-color: #9333ea;">
-            A land-river interface cluster
-          </li>
-          <li style="--bullet-color: #ea580c;">
-            A multimodal transportation node at the Chicago “L” intersection
-          </li>
-          <li style="--bullet-color: #0891b2;">
-            A node at one of Chicago’s densest intersections
-          </li>
+      <article class="goal-card">
+        <h3>Built-in edge computing</h3>
+        <ul>
+          <li>AI/ML and conventional computing can be performed close to the data source.</li>
+          <li>Edge-local processing enables responsive analysis and reduced dependence on centralized processing.</li>
         </ul>
-      </figure>
+      </article>
+
+      <article class="goal-card">
+        <h3>Software and hardware extensibility</h3>
+        <ul>
+          <li>The network can be updated over time to support new sensors, workflows, and algorithms.</li>
+          <li>Extensibility is supported within the practical limits of deployed hardware and software.</li>
+        </ul>
+      </article>
+
+      <article class="goal-card">
+        <h3>Closed-loop edge-cloud operation</h3>
+        <ul>
+          <li>Jobs can be scheduled and coordinated across edge nodes and cloud resources.</li>
+          <li>The architecture supports feedback between cloud-level analysis and edge-level execution.</li>
+        </ul>
+      </article>
+
+      <article class="goal-card">
+        <h3>Context-aware execution</h3>
+        <ul>
+          <li>Edge nodes can support adaptive job execution based on local data, system state, or broader network context.</li>
+          <li>This enables more intelligent use of sensing, compute, and communication resources.</li>
+        </ul>
+      </article>
+
+      <article class="goal-card">
+        <h3>Network-wide aggregation and analysis</h3>
+        <ul>
+          <li>Data from multiple nodes can be aggregated for cloud-based analysis, visualization, and algorithm evaluation.</li>
+          <li>Network-wide views support spatial, temporal, and multimodal analysis across deployment sites.</li>
+        </ul>
+      </article>
     </div>
+
+    <figure class="feature-media map-media">
+      <img src="images/pandawn-map.jpg" alt="Map showing PANDAWN network sensing locations across Chicago">
+      <figcaption>PANDAWN network deployment map showing sensor node locations in Chicago.</figcaption>
+
+      <ul class="map-cluster-list">
+        <li style="--bullet-color: #2563eb;">Three clusters and two uniquely placed individual nodes</li>
+        <li style="--bullet-color: #16a34a;">A medical campus pair</li>
+        <li style="--bullet-color: #dc2626;">A dense downtown cluster</li>
+        <li style="--bullet-color: #9333ea;">A land-river interface cluster</li>
+        <li style="--bullet-color: #ea580c;">A multimodal transportation node at the Chicago “L” intersection</li>
+        <li style="--bullet-color: #0891b2;">A node at one of Chicago’s densest intersections</li>
+      </ul>
+    </figure>
   </div>
 </section>
 
