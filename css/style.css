@@ -687,3 +687,35 @@ footer {
   margin-top: 0.75rem;
 }
 
+
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2.5rem;
+}
+
+.figure-grid .feature-media {
+  width: 100%;
+  margin: 0;
+}
+
+.figure-grid .feature-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.figure-grid .feature-media figcaption {
+  text-align: center;
+  font-weight: 700;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 800px) {
+  .figure-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
