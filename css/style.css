@@ -237,7 +237,7 @@ section.alt { background: var(--bg-mid); }
 .section-inner { max-width: var(--max-w); margin: 0 auto; }
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: .68rem;
+  font-size: .99rem;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--amber);
@@ -629,4 +629,11 @@ footer {
   margin: 1rem 0 0.5rem;
   font-weight: 600;
   color: var(--text, #111827);
+}
+
+.goal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; /* increase this value for more space */
+  margin-top: 2rem;
 }
