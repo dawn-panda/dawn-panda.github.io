@@ -824,3 +824,15 @@ footer {
 .data-stream-details {
   margin-top: 1.25rem;
 }
+
+.section-lead a,
+.goal-card a {
+  color: var(--link, #2563eb);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.section-lead a:hover,
+.goal-card a:hover {
+  text-decoration: underline;
+}
