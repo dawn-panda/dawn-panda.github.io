@@ -719,3 +719,60 @@ footer {
   }
 }
 
+.pandawn-platform-grid {
+  margin-top: 2rem;
+}
+
+.goal-card p {
+  margin: 0;
+  line-height: 1.55;
+  color: var(--text-muted, #5f6b7a);
+}
+
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2.5rem;
+}
+
+.figure-grid .feature-media {
+  margin: 0;
+  justify-self: center;
+}
+
+.figure-node {
+  width: 90%;
+}
+
+.figure-deployment {
+  width: 90%;
+}
+
+.figure-grid .feature-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+}
+
+.figure-grid .feature-media figcaption {
+  text-align: center;
+  font-weight: 700;
+  margin-top: 0.75rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 800px) {
+  .figure-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .figure-node,
+  .figure-deployment {
+    width: 100%;
+  }
+}
+
