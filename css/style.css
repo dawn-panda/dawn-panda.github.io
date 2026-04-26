@@ -667,3 +667,23 @@ footer {
 .spacer-md {
   height: 2rem;
 }
+
+
+.feature-media {
+  width: 80%;
+  margin: 2rem auto;
+}
+
+.feature-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+}
+
+.feature-media figcaption {
+  text-align: center;
+  font-weight: 700;
+  margin-top: 0.75rem;
+}
+
