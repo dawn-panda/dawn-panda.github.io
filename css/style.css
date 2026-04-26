@@ -663,3 +663,7 @@ footer {
   border-radius: 50%;
   background-color: var(--bullet-color);
 }
+
+.spacer-md {
+  height: 2rem;
+}
