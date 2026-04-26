@@ -805,3 +805,17 @@ footer {
 .data-type-list li:last-child {
   margin-bottom: 0;
 }
+
+.subsection-heading {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.subsection-heading h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.roadmap-heading {
+  margin-top: 2rem;
+}
