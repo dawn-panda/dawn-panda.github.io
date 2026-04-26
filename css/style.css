@@ -825,14 +825,16 @@ footer {
   margin-top: 1.25rem;
 }
 
-/* .section-lead a, */
-/*.goal-card a {
-  color: var(--link, #2563eb);
-  font-weight: 600;
-  text-decoration: none;
-}*/
 
 .section-lead a:hover,
 .goal-card a:hover {
   text-decoration: underline;
+}
+
+.section-note {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--text-muted, #5f6b7a);
 }
