@@ -618,3 +618,15 @@ footer {
   .stat-chip { padding: .4rem .75rem; }
   .pipeline { grid-template-columns: 1fr; }
 }
+
+.goal-card p {
+  margin: 0;
+  line-height: 1.55;
+  color: var(--text-muted, #5f6b7a);
+}
+
+.map-summary {
+  margin: 1rem 0 0.5rem;
+  font-weight: 600;
+  color: var(--text, #111827);
+}
