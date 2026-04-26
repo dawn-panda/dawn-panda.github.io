@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The PANDAWN sensor network — 14 AI-enabled nodes deployed across Chicago for multimodal radiological detection.">
+  <title>Network — PANDAWNOps</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">PANDAWN<span>ops</span></a>
+  <button class="nav-toggle" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="network.html" class="active">Network</a></li>
+    <li><a href="data.html">Data</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="team.html">Team</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Chicago Urban Laboratory · 14 Nodes</div>
+    <h1>The PANDAWN<br><em>Sensor Network</em></h1>
+    <p class="hero-lead">A remotely reconfigurable, AI-enabled radiological and contextual sensor network deployed across Chicago — a city-scale testbed for networked multimodal detection.</p>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- NODE ANATOMY -->
+<section>
+  <div class="section-inner">
+    <div class="eyebrow">Hardware</div>
+    <h2>Node anatomy</h2>
+    <div class="two-col">
+      <div class="card">
+        <p class="text-xs text-grey" style="text-transform:uppercase;letter-spacing:.1em;font-family:var(--font-mono);margin-bottom:1.2rem">Sensor node — components</p>
+
+        <div class="node-component">
+          <div class="nc-dot" style="background:#d4922a;box-shadow:0 0 7px #d4922a"></div>
+          <div>
+            <span class="nc-name">NaI(Tl) Radiation Detector</span>
+            <span class="nc-spec">2×4×16" crystal array · custom housing · variable angle</span>
+            <span class="nc-desc">List-mode Digibase acquisition; raw spectral data. Each node weighs ~60 lbs including the NaI crystal.</span>
+          </div>
+        </div>
+        <div class="node-component">
+          <div class="nc-dot" style="background:#3d9bd0;box-shadow:0 0 7px #3d9bd0"></div>
+          <div>
+            <span class="nc-name">Video Camera</span>
+            <span class="nc-spec">5 MP · 20–30 fps · motorized lens</span>
+            <span class="nc-desc">Bird's-eye intersection view. Privacy-by-design: camera angle insufficient for face or license plate recognition, verified by DOE IRB.</span>
+          </div>
+        </div>
+        <div class="node-component">
+          <div class="nc-dot" style="background:#2e9e6b;box-shadow:0 0 7px #2e9e6b"></div>
+          <div>
+            <span class="nc-name">LiDAR</span>
+            <span class="nc-spec">64-beam · 10 Hz · variable tilt</span>
+            <span class="nc-desc">3D point clouds enabling vehicle tracking and depth-aware source–object attribution.</span>
+          </div>
+        </div>
+        <div class="node-component">
+          <div class="nc-dot" style="background:#9b7fe8;box-shadow:0 0 7px #9b7fe8"></div>
+          <div>
+            <span class="nc-name">Meteorological Sensors</span>
+            <span class="nc-spec">T · p · H at /30 s · rain gauge at /1 s</span>
+            <span class="nc-desc">Continuous environmental context critical for correlating radiological background fluctuations with weather conditions.</span>
+          </div>
+        </div>
+        <div class="node-component">
+          <div class="nc-dot" style="background:#c0444a;box-shadow:0 0 7px #c0444a"></div>
+          <div>
+            <span class="nc-name">Edge Computing</span>
+            <span class="nc-spec">2× NVIDIA Xavier NX · 2× Raspberry Pi 4</span>
+            <span class="nc-desc">AI/ML inference, data acquisition, ROS messaging, and built-in cellular/Wi-Fi connectivity — all on-pole.</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <ul class="feature-list">
+          <li>
+            <div>
+              <strong>Time-synchronized multimodal acquisition</strong>
+              All sensor streams are tied together through a ROS-based DAQ system. Precise time synchronization across radiological, camera, LiDAR, and environmental data is a key feature enabling multimodal fusion algorithms.
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Continuous + selected acquisition modes</strong>
+              Rad and meteorological data stream continuously (~2.5 GB/node/day). Camera and LiDAR are captured 6×2 min per day, producing ~12 GB/node/day. Total: ~15 GB/node/day.
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>COTS-first, extensible design</strong>
+              Primarily commercial off-the-shelf components with modular PoE and USB expansion. Containerized ML workloads can be pushed, swapped, or updated remotely without physical access.
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Closed-loop edge–cloud computing</strong>
+              Nodes operate autonomously and transmit inference results in near-real-time. The cloud pushes updated models, job configurations, and adaptive steering commands back to the edge.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- DEPLOYMENT -->
+<section class="alt">
+  <div class="section-inner">
+    <div class="eyebrow">Chicago Deployment</div>
+    <h2>14 strategically placed nodes</h2>
+
+    <!-- Map placeholder -->
+    <div class="map-wrap">
+      <div class="map-grid"></div>
+      <!-- Approximate relative positions of nodes across Chicago deployment area -->
+      <div class="map-node" style="left:52%;top:26%;animation-delay:.0s"></div>
+      <div class="map-node" style="left:55%;top:31%;animation-delay:.3s"></div>
+      <div class="map-node" style="left:58%;top:34%;animation-delay:.6s"></div>
+      <div class="map-node" style="left:61%;top:33%;animation-delay:.9s"></div>
+      <div class="map-node" style="left:56%;top:38%;animation-delay:1.2s"></div>
+      <div class="map-node" style="left:59%;top:40%;animation-delay:1.5s"></div>
+      <div class="map-node" style="left:62%;top:42%;animation-delay:1.8s"></div>
+      <div class="map-node" style="left:57%;top:44%;animation-delay:2.1s"></div>
+      <div class="map-node" style="left:60%;top:47%;animation-delay:2.4s"></div>
+      <div class="map-node" style="left:63%;top:46%;animation-delay:.15s"></div>
+      <div class="map-node" style="left:54%;top:49%;animation-delay:.45s"></div>
+      <div class="map-node" style="left:65%;top:50%;animation-delay:.75s"></div>
+      <div class="map-node" style="left:36%;top:64%;animation-delay:1.05s"></div>
+      <div class="map-node" style="left:41%;top:73%;animation-delay:1.35s"></div>
+      <div class="map-label">
+        Live status: dawn.sagecontinuum.org/nodes<br>
+        <span style="font-size:.62rem;color:var(--grey-dk)">14 nodes · Chicago, IL · pulsing = active</span>
+      </div>
+    </div>
+
+    <div class="cluster-grid">
+      <div class="cluster-chip">
+        <h4><span class="cdot" style="background:#3d9bd0"></span>Land–River Interface</h4>
+        <p>Dense cluster near the Chicago River providing unique hydrological and environmental context.</p>
+      </div>
+      <div class="cluster-chip">
+        <h4><span class="cdot" style="background:#2e9e6b"></span>Dense Downtown</h4>
+        <p>High-traffic urban core capturing diverse pedestrian, vehicle, and transit radiation signals.</p>
+      </div>
+      <div class="cluster-chip">
+        <h4><span class="cdot" style="background:#d4922a"></span>Medical Campus</h4>
+        <p>Pair of nodes near a major hospital — captures medical isotope patterns (Tc-99m, PET tracers).</p>
+      </div>
+      <div class="cluster-chip">
+        <h4><span class="cdot" style="background:#9b7fe8"></span>Multimodal Transit</h4>
+        <p>At a Chicago "L" elevated train intersection, capturing diverse multimodal transport activity.</p>
+      </div>
+      <div class="cluster-chip">
+        <h4><span class="cdot" style="background:#c0444a"></span>Dense Intersection</h4>
+        <p>One of Chicago's highest-traffic intersections for peak activity and source encounter sampling.</p>
+      </div>
+    </div>
+    <p class="note">Node W022 deployment expected Spring/Summer 2026. Live status at <a href="https://dawn.sagecontinuum.org/nodes" target="_blank" rel="noopener">dawn.sagecontinuum.org/nodes</a>.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- SOFTWARE ARCHITECTURE -->
+<section>
+  <div class="section-inner">
+    <div class="eyebrow">Software Architecture</div>
+    <h2>Edge–cloud continuum</h2>
+    <div class="pipeline">
+      <div class="pipe-stage">
+        <div class="pipe-num">EDGE NODE</div>
+        <h3>On-node Processing</h3>
+        <p>ROS-based multimodal DAQ · rad calibration &amp; background learning · object detection &amp; tracking · anomaly detection · isotope ID · source attribution · sensor QA</p>
+        <span class="pipe-badge">Docker / K8s</span>
+      </div>
+      <div class="pipe-stage">
+        <div class="pipe-num">ANL BEEHIVE</div>
+        <h3>Cloud Orchestration</h3>
+        <p>Job scheduling · remote management · time-series &amp; object data store · network-level fusion · background model training · push models to edge</p>
+        <span class="pipe-badge">~30 sec latency</span>
+      </div>
+      <div class="pipe-stage">
+        <div class="pipe-num">ANL SERVERS</div>
+        <h3>Data Staging</h3>
+        <p>Continuous data upload from nodes · real-time Python API access · database &amp; job scheduler · QA feedback loop</p>
+        <span class="pipe-badge">Sage API</span>
+      </div>
+      <div class="pipe-stage">
+        <div class="pipe-num">LBNL BDC</div>
+        <h3>Curation &amp; Labeling</h3>
+        <p>Daily QC + automated labeling pipeline · monthly curated collections · portal + Python download API · DUA management</p>
+        <span class="pipe-badge">~1 day latency</span>
+      </div>
+      <div class="pipe-stage">
+        <div class="pipe-num">COMMUNITY</div>
+        <h3>Dissemination</h3>
+        <p>Data access via BDC now · Alexandria mirror with DOI planned · engagement through DRAG · algorithm development &amp; model training</p>
+        <span class="pipe-badge">NA-22</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- TIMELINE -->
+<section class="alt">
+  <div class="section-inner">
+    <div class="eyebrow">History</div>
+    <h2>Program timeline</h2>
+    <div style="max-width:680px">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2014–2019</div>
+          <h3>Waggle AI@Edge &amp; Array of Things</h3>
+          <p>ANL, UChicago, and Northwestern build the Waggle edge computing platform and deploy environmental sensing nodes across Chicago in collaboration with the City.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2019–2024</div>
+          <h3>PANDA (LBNL) &amp; DAWN (ANL)</h3>
+          <p>Parallel projects add radiological/nuclear sensing and detection algorithms. Rad/Nuc sensors added to Chicago city agreement in 2020.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Summer 2022</div>
+          <h3>DAWN Pilot Deployment</h3>
+          <p>2-node pilot deployed in Chicago Medical District. Communication plan developed with advisory group from FBI, DHS, Chicago Fire Dept., and ANL.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Summer 2023</div>
+          <h3>Full 14-Node Deployment Begins</h3>
+          <p>First full data campaign: 12 TB collected Sept 2023 – May 2024.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">January 2024</div>
+          <h3>DOE Human Subjects Research Review</h3>
+          <p>DOE IRB confirms no PII is collected. Data assurance agreement executed. DOE concludes work does not meet the definition of human subjects research under 10CFR745.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Spring–Fall 2024</div>
+          <h3>Operational Pause &amp; Transition</h3>
+          <p>Operations temporarily paused while DHS and NNSA resolved authority and responsibilities. Nodes and resources transferred from DAWN to the joint PANDAWN project.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot green"></div>
+          <div class="tl-year">Spring 2026</div>
+          <h3>Privacy Impact Assessment Executed — Network Restarted</h3>
+          <p>Formal PIA completed with ANL Legal, DOE Site Office, and NNSA Legal. PANDAWN network resumes operations. FY26–FY27 data campaign begins (~94 TB expected).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- PRIVACY -->
+<section>
+  <div class="section-inner">
+    <div class="eyebrow">Privacy &amp; Compliance</div>
+    <h2>Privacy guardrails</h2>
+    <div class="two-col">
+      <ul class="feature-list">
+        <li><div><strong>No personally identifiable information collected</strong> Confirmed by DOE IRB through image sampling review. No audio, genomic, or biological data is collected.</div></li>
+        <li><div><strong>Privacy-by-design camera positioning</strong> Cameras positioned for bird's-eye intersection views only; images insufficient to identify faces or read license plates.</div></li>
+        <li><div><strong>Limited video collection</strong> LiDAR and video collected only 6×2 min/day (&lt;1%). Radiological and environmental data collected continuously.</div></li>
+        <li><div><strong>Data access controls</strong> Access restricted to approved team members at ANL, PNNL, and LBNL. All users must sign a Data User Agreement.</div></li>
+      </ul>
+      <div class="stat-block">
+        <div class="stat-block-header">Agreements in place</div>
+        <div class="stat-row"><span class="label">City of Chicago agreement</span><span class="value" style="font-size:.75rem;color:var(--green)">✓ Active</span></div>
+        <div class="stat-row"><span class="label">DOE HSR Review</span><span class="value" style="font-size:.75rem;color:var(--green)">✓ Complete</span></div>
+        <div class="stat-row"><span class="label">Data Assurance Agreement</span><span class="value" style="font-size:.75rem;color:var(--green)">✓ Executed</span></div>
+        <div class="stat-row"><span class="label">Privacy Impact Assessment</span><span class="value" style="font-size:.75rem;color:var(--green)">✓ 2026</span></div>
+        <div class="stat-row"><span class="label">Communication plan (RAP)</span><span class="value" style="font-size:.75rem;color:var(--green)">✓ Active</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">PANDAWN<span>ops</span></div>
+      <p class="footer-desc">Multi-Sensor Data for Domain Aware Radiological/Nuclear Detection in Urban Environments. Supported by DOE NNSA NA-22.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://bdc.lbl.gov/" target="_blank" rel="noopener">Berkeley Data Cloud</a>
+      <a href="https://dawn.sagecontinuum.org/nodes" target="_blank" rel="noopener">PANDAWN Portal</a>
+      <a href="https://github.com/dawn-panda" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <div class="footer-copy">© PANDAWNOps · Lawrence Berkeley National Laboratory, Argonne National Laboratory, Pacific Northwest National Laboratory</div>
+</footer>
+
+</body>
+</html>

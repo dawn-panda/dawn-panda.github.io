@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PANDAWN data — collection, labeling, curation, and access for the NA-22 nonproliferation community.">
+  <title>Data — PANDAWNOps</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">PANDAWN<span>ops</span></a>
+  <button class="nav-toggle" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="network.html">Network</a></li>
+    <li><a href="data.html" class="active">Data</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="team.html">Team</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Collection · Labeling · Curation · Access</div>
+    <h1>Data Collection,<br><em>Labeling &amp; Curation</em></h1>
+    <p class="hero-lead">Rich, labeled, time-synchronized multimodal data sets — from real Chicago streets — curated and disseminated to the NA-22 nonproliferation research community.</p>
+    <div class="hero-stats">
+      <div class="stat-chip"><span class="val">12 TB</span><span class="lbl">Campaign 1</span></div>
+      <div class="stat-chip"><span class="val">~94 TB</span><span class="lbl">Campaign 2 (est.)</span></div>
+      <div class="stat-chip"><span class="val">~15 GB</span><span class="lbl">per node per day</span></div>
+      <div class="stat-chip"><span class="val">6.25 GB</span><span class="lbl">labeled per node per day</span></div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- RAW STREAMS -->
+<section>
+  <div class="section-inner">
+    <div class="eyebrow">Raw data streams</div>
+    <h2>Time-synchronized multimodal acquisition</h2>
+    <p style="max-width:640px;margin-bottom:2rem">All sensor streams are acquired through a <strong>ROS-based DAQ system</strong>, providing precise time synchronization across all modalities — a critical feature for multimodal fusion algorithms, and a point of strong community interest.</p>
+    <div class="stream-grid">
+      <div class="stream-card">
+        <div class="stream-head">
+          <div class="nc-dot" style="background:#d4922a;box-shadow:0 0 6px #d4922a;flex-shrink:0;width:9px;height:9px;border-radius:50%"></div>
+          <span class="name">Radiological + Calibration</span>
+          <span class="rate">continuous</span>
+        </div>
+        <div class="stream-body">
+          <ul>
+            <li><strong>List-mode Digibase data</strong> — raw spectral events</li>
+            <li><strong>Online calibration</strong> — continuous gain and energy tracking</li>
+            <li>Bin-mode spectra at <strong>0.5 s integration time</strong></li>
+            <li>~2.5 GB/node/day (combined with meteorological)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="stream-card">
+        <div class="stream-head">
+          <div class="nc-dot" style="background:#9b7fe8;box-shadow:0 0 6px #9b7fe8;flex-shrink:0;width:9px;height:9px;border-radius:50%"></div>
+          <span class="name">Meteorological</span>
+          <span class="rate">continuous</span>
+        </div>
+        <div class="stream-body">
+          <ul>
+            <li><strong>T, p, H</strong> — temperature, pressure, humidity at /30 s</li>
+            <li><strong>Rain gauge</strong> — precipitation at /1 s</li>
+            <li>Critical for correlating rad background changes</li>
+            <li>~2.5 GB/node/day (combined with radiological)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="stream-card">
+        <div class="stream-head">
+          <div class="nc-dot" style="background:#3d9bd0;box-shadow:0 0 6px #3d9bd0;flex-shrink:0;width:9px;height:9px;border-radius:50%"></div>
+          <span class="name">Video Camera</span>
+          <span class="rate">6×2 min/day</span>
+        </div>
+        <div class="stream-body">
+          <ul>
+            <li><strong>20–30 fps</strong> · 5 MP · motorized lens</li>
+            <li>Selected acquisition synchronized with LiDAR and rad</li>
+            <li>~6 GB/node/day</li>
+            <li>Privacy-by-design: no face or plate identification</li>
+          </ul>
+        </div>
+      </div>
+      <div class="stream-card">
+        <div class="stream-head">
+          <div class="nc-dot" style="background:#2e9e6b;box-shadow:0 0 6px #2e9e6b;flex-shrink:0;width:9px;height:9px;border-radius:50%"></div>
+          <span class="name">LiDAR Point Clouds</span>
+          <span class="rate">6×2 min/day</span>
+        </div>
+        <div class="stream-body">
+          <ul>
+            <li><strong>10 Hz</strong> · 64-beam · variable tilt</li>
+            <li>Selected acquisition synchronized with camera and rad</li>
+            <li>~6 GB/node/day</li>
+            <li>Enables 3D track reconstruction for source attribution</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- PIPELINE -->
+<section class="alt">
+  <div class="section-inner">
+    <div class="eyebrow">Processing pipeline</div>
+    <h2>From node to curated collection</h2>
+    <div class="pipeline" style="margin-bottom:1.5rem">
+      <div class="pipe-stage">
+        <div class="pipe-num">01 · EDGE</div>
+        <h3>Acquisition</h3>
+        <p>ROS-based on-node apps collect all streams. Job scheduler handles QA, health checks, and rescheduling.</p>
+        <span class="pipe-badge">ANL Nodes</span>
+      </div>
+      <div class="pipe-stage">
+        <div class="pipe-num">02 · CLOUD</div>
+        <h3>ANL Servers</h3>
+        <p>Continuous data upload. Real-time access to raw (non-QC'd) data via Sage/PANDAWN Python API.</p>
+        <span class="pipe-badge">~30 sec</span>
+      </div>
+      <div class="pipe-stage">
+        <div class="pipe-num">03 · BDC</div>
+        <h3>Daily Pull + QC</h3>
+        <p>BDC cron jobs pull 14.5 GB/node nightly at 2 AM. QC filters empty chunks, duplicates, fixes calibration issues.</p>
+        <span class="pipe-badge">~1 day</span>
+      </div>
+      <div class="pipe-stage">
+        <div class="pipe-num">04 · BDC</div>
+        <h3>Auto Labeling</h3>
+        <p>Rad labels (BARD/NMF), camera labels (YOLOv10l + Norfair), and Rad+Cam attribution labels generated daily.</p>
+        <span class="pipe-badge">6.25 GB/node/day</span>
+      </div>
+      <div class="pipe-stage">
+        <div class="pipe-num">05 · COMMUNITY</div>
+        <h3>Monthly Collections</h3>
+        <p>Curated QC'd + labeled data ingested into monthly collections on BDC, accessible via portal or Python API.</p>
+        <span class="pipe-badge">BDC · Alexandria</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- LABELS -->
+<section>
+  <div class="section-inner">
+    <div class="eyebrow">Automated labeling</div>
+    <h2>Three complementary label types</h2>
+    <div class="label-grid">
+
+      <div class="label-card">
+        <div class="label-card-top">
+          <div class="label-icon" style="background:rgba(212,146,42,.1);border:1px solid rgba(212,146,42,.25)">☢️</div>
+          <h3>Radiological Labels</h3>
+        </div>
+        <ul>
+          <li><strong>Bin-mode spectra</strong> at 0.5 s integration (timestamp, count rate, livetime)</li>
+          <li>Continuous <strong>energy calibration</strong> (gain, saturation, resolution; &lt;1% stability)</li>
+          <li><strong>Meteorological context</strong> (T, p, H, rain, radon flag)</li>
+          <li>NMF-based <strong>background model</strong> (ab-initio, in-situ learning)</li>
+          <li><strong>Anomaly detection metrics</strong> (metric, p-value, GOF, NMF weights)</li>
+          <li><strong>Isotope identification</strong> (top ID, encounter classification)</li>
+          <li>Background model index &amp; selection history</li>
+        </ul>
+        <div class="label-note" style="background:rgba(212,146,42,.07);border:1px solid rgba(212,146,42,.2);color:var(--amber-lt)">
+          Generated by LBNL's <strong>BARD</strong> (Background Adaptive Radiation Detection) · Default: FPR = 1/8h
+        </div>
+      </div>
+
+      <div class="label-card">
+        <div class="label-card-top">
+          <div class="label-icon" style="background:rgba(61,155,208,.1);border:1px solid rgba(61,155,208,.25)">📹</div>
+          <h3>Camera Labels</h3>
+        </div>
+        <ul>
+          <li>Frame-by-frame <strong>bounding boxes</strong> (x, y, w, h, confidence)</li>
+          <li><strong>Object classes:</strong> Bicycle, Bus, Car, Motorcycle, Pedestrian, Truck</li>
+          <li>YOLOv10l at 25% default confidence threshold</li>
+          <li>Frame-to-frame <strong>track IDs</strong> via Norfair tracker</li>
+          <li>Per-track metadata over 2-min footage windows</li>
+        </ul>
+        <div class="label-note" style="background:rgba(61,155,208,.07);border:1px solid rgba(61,155,208,.2);color:var(--sky-lt)">
+          Supports <strong>detection/tracking algorithm training</strong> and rad/contextual fusion research
+        </div>
+      </div>
+
+      <div class="label-card">
+        <div class="label-card-top">
+          <div class="label-icon" style="background:rgba(46,158,107,.1);border:1px solid rgba(46,158,107,.25)">🔗</div>
+          <h3>Rad + Camera Labels</h3>
+        </div>
+        <ul>
+          <li><strong>Source–object attribution</strong>: assigns R/N signal to scene objects</li>
+          <li>Monocular depth estimation (UniK3D) for 3D track reconstruction</li>
+          <li>Remote extrinsic camera calibration workflow</li>
+          <li>Track-based modeled signal vs measured source signal fit</li>
+          <li>Attribution metric: p-value of chi² NNLS fit</li>
+        </ul>
+        <div class="label-note" style="background:rgba(46,158,107,.07);border:1px solid rgba(46,158,107,.2);color:var(--green-lt)">
+          Validated with controlled drive-by experiments at LBNL (200 µCi Co-60 source)
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- METADATA -->
+<section class="alt">
+  <div class="section-inner">
+    <div class="eyebrow">Metadata</div>
+    <h2>Provided with every curated data set</h2>
+    <div class="two-col">
+      <div class="stat-block">
+        <div class="stat-block-header">Node metadata</div>
+        <div class="stat-row"><span class="label">Geolocation</span><span class="value">GIS (lon, lat) per node</span></div>
+        <div class="stat-row"><span class="label">Rad calibration (time-dep.)</span><span class="value">gain · saturation · resolution</span></div>
+        <div class="stat-row"><span class="label">Background models</span><span class="value">NMF components per node</span></div>
+        <div class="stat-row"><span class="label">Model selection history</span><span class="value">per time window</span></div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-block-header">Camera metadata</div>
+        <div class="stat-row"><span class="label">Intrinsic calibration</span><span class="value">image → camera frame</span></div>
+        <div class="stat-row"><span class="label">Depth map</span><span class="value">per pixel at ground level</span></div>
+        <div class="stat-row"><span class="label">Extrinsic calibration</span><span class="value">camera → world frame</span></div>
+        <div class="stat-row"><span class="label">Calibration method</span><span class="value">remote (UniK3D)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ACCESS -->
+<section>
+  <div class="section-inner">
+    <div class="eyebrow">Data access</div>
+    <h2>Accessing PANDAWN data</h2>
+
+    <table class="data-table" style="max-width:680px;margin-bottom:2.5rem">
+      <thead>
+        <tr><th>Product</th><th>Latency</th><th>Access</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Raw time-series (non-QC'd)</td><td class="mono">~30 sec</td><td>PANDAWN Portal · Sage Python API</td></tr>
+        <tr><td>QC'd + labeled data</td><td class="mono">~1 day</td><td>Berkeley Data Cloud (bdc.lbl.gov)</td></tr>
+        <tr><td>Long-term curated collections</td><td class="mono">on demand</td><td>BDC now; Alexandria (planned, with DOI)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="two-col">
+      <div class="card">
+        <h3 style="font-family:var(--font-sans);font-size:1rem;margin-bottom:1.2rem">Curated data — NA-22 community</h3>
+        <div class="access-step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <strong>Register for a BDC account</strong>
+            Create an account at <a href="https://bdc.lbl.gov/" target="_blank" rel="noopener">bdc.lbl.gov</a>
+          </div>
+        </div>
+        <div class="access-step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <strong>Receive approval &amp; sign DUA</strong>
+            Approval granted by project leads. Sign the PANDAWN Data User Agreement — procedure compatible with Alexandria data policy.
+          </div>
+        </div>
+        <div class="access-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <strong>Download data</strong>
+            Access monthly curated collections via BDC portal or the Python query/download API.
+          </div>
+        </div>
+        <div class="access-step">
+          <div class="step-num">↗</div>
+          <div class="step-text">
+            <strong>Long-term: Alexandria mirror</strong>
+            Data sets will be mirrored to <a href="https://alexandria.inl.gov" target="_blank" rel="noopener">alexandria.inl.gov</a> with DOI assignment (planned).
+          </div>
+        </div>
+        <div class="mt-md btn-row">
+          <a href="https://bdc.lbl.gov/" target="_blank" rel="noopener" class="btn btn-primary">Request Access →</a>
+          <a href="https://dawn.sagecontinuum.org/nodes" target="_blank" rel="noopener" class="btn btn-secondary">Live Portal →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="font-family:var(--font-sans);font-size:1rem;margin-bottom:.6rem">Real-time data — Python API</h3>
+        <p class="text-sm text-grey" style="margin-bottom:.8rem">Query raw streaming data from any node via the Sage data client:</p>
+        <div class="code-block"><span class="kw">import</span> sage_data_client
+
+<span class="cm"># Query last 24h temperature from node W077</span>
+df = sage_data_client.query(
+    start=<span class="st">"-1d"</span>,
+    filter={
+        <span class="st">"vsn"</span>: <span class="st">"W077"</span>,
+        <span class="st">"name"</span>: <span class="st">"env.temperature"</span>,
+        <span class="st">"sensor"</span>: <span class="st">"bme680"</span>
+    }
+)</div>
+        <p class="note">Full API docs: <a href="https://dawn.sagecontinuum.org/nodes" target="_blank" rel="noopener">dawn.sagecontinuum.org</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- COMMUNITY -->
+<section class="alt">
+  <div class="section-inner">
+    <div class="eyebrow">Community engagement</div>
+    <h2>Why this data is unique</h2>
+    <div class="two-col">
+      <div>
+        <p>PANDAWN data sets are unique in the nonproliferation mission space: large-volume, synchronized, labeled, and collected from real urban environments over long time periods — capturing seasonal, meteorological, and temporal variation that cannot be replicated in simulation.</p>
+        <p>Labeling follows an iterative approach, informed by ongoing community feedback through the <strong>Detecting Radiation Algorithms Group (DRAG)</strong> and data user analyses. Current labeling represents a first pass — further refinement continues as community use cases develop.</p>
+      </div>
+      <div>
+        <div class="stat-block">
+          <div class="stat-block-header">Curated data supports</div>
+          <div class="stat-row"><span class="label">Detection algorithm training</span><span class="value" style="color:var(--green);font-size:.8rem">✓</span></div>
+          <div class="stat-row"><span class="label">ML/LLM-based rad detection</span><span class="value" style="color:var(--green);font-size:.8rem">✓</span></div>
+          <div class="stat-row"><span class="label">Tracking algorithm training</span><span class="value" style="color:var(--green);font-size:.8rem">✓</span></div>
+          <div class="stat-row"><span class="label">Rad pattern-of-life analysis</span><span class="value" style="color:var(--green);font-size:.8rem">✓</span></div>
+          <div class="stat-row"><span class="label">Source injection / sampling</span><span class="value" style="color:var(--green);font-size:.8rem">✓</span></div>
+          <div class="stat-row"><span class="label">AI-driven domain awareness</span><span class="value" style="color:var(--green);font-size:.8rem">✓</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">PANDAWN<span>ops</span></div>
+      <p class="footer-desc">Multi-Sensor Data for Domain Aware Radiological/Nuclear Detection in Urban Environments. Supported by DOE NNSA NA-22.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://bdc.lbl.gov/" target="_blank" rel="noopener">Berkeley Data Cloud</a>
+      <a href="https://dawn.sagecontinuum.org/nodes" target="_blank" rel="noopener">PANDAWN Portal</a>
+      <a href="https://github.com/dawn-panda" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <div class="footer-copy">© PANDAWNOps · Lawrence Berkeley National Laboratory, Argonne National Laboratory, Pacific Northwest National Laboratory</div>
+</footer>
+
+</body>
+</html>

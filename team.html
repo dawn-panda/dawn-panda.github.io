@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team — PANDAWNOps</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">PANDAWN<span>ops</span></a>
+  <button class="nav-toggle" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="network.html">Network</a></li>
+    <li><a href="data.html">Data</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="team.html" class="active">Team</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">LBNL · ANL · PNNL</div>
+    <h1>The <em>Team</em></h1>
+    <p class="hero-lead">~25 scientists and engineers, 5 postdocs, and 5–10 undergraduate and graduate students across three national laboratories.</p>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<section>
+  <div class="section-inner">
+    <div class="eyebrow">Lawrence Berkeley National Laboratory</div>
+    <h2>LBNL</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">RC</div>
+        <h3>Ren Cooper</h3>
+        <p class="role">Principal Investigator</p>
+        <p class="inst">Lawrence Berkeley National Laboratory</p>
+        <a class="email" href="mailto:RJCooper@lbl.gov">RJCooper@lbl.gov</a>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">NA</div>
+        <h3>Nico Abgrall</h3>
+        <p class="role">Data Collection, Labeling &amp; Curation</p>
+        <p class="inst">Lawrence Berkeley National Laboratory</p>
+        <a class="email" href="mailto:nabgrall@lbl.gov">nabgrall@lbl.gov</a>
+      </div>
+      <!-- Add more team members here following the same .team-card pattern -->
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="alt">
+  <div class="section-inner">
+    <div class="eyebrow">Argonne National Laboratory</div>
+    <h2>ANL</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">RS</div>
+        <h3>Raj Sankaran</h3>
+        <p class="role">Network &amp; Platform Lead</p>
+        <p class="inst">Argonne National Laboratory</p>
+      </div>
+      <!-- Add more team members here -->
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section>
+  <div class="section-inner">
+    <div class="eyebrow">Pacific Northwest National Laboratory</div>
+    <h2>PNNL</h2>
+    <div class="team-grid">
+      <!-- Add PNNL team members here -->
+      <div class="team-card" style="border-style:dashed;display:flex;align-items:center;justify-content:center;min-height:140px">
+        <p class="text-sm text-grey" style="text-align:center">Add team members by editing <code>team.html</code></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">PANDAWN<span>ops</span></div>
+      <p class="footer-desc">Multi-Sensor Data for Domain Aware Radiological/Nuclear Detection in Urban Environments. Supported by DOE NNSA NA-22.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://bdc.lbl.gov/" target="_blank" rel="noopener">Berkeley Data Cloud</a>
+      <a href="https://dawn.sagecontinuum.org/nodes" target="_blank" rel="noopener">PANDAWN Portal</a>
+      <a href="https://github.com/dawn-panda" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <div class="footer-copy">© PANDAWNOps · Lawrence Berkeley National Laboratory, Argonne National Laboratory, Pacific Northwest National Laboratory</div>
+</footer>
+
+</body>
+</html>
