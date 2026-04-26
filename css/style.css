@@ -637,3 +637,29 @@ footer {
   gap: 2rem; /* increase this value for more space */
   margin-top: 2rem;
 }
+
+.map-cluster-list {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.map-cluster-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--text-muted, #5f6b7a);
+}
+
+.map-cluster-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background-color: var(--bullet-color);
+}
