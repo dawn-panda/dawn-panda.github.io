@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="PANDAWNOps — Multi-sensor data for domain-aware radiological/nuclear detection in urban environments."
+  >
+  <title>PANDAWNOps</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">PANDAWN<span>ops</span></a>
+
+    <button
+      class="nav-toggle"
+      onclick="this.classList.toggle('open'); document.querySelector('.nav-links').classList.toggle('open');"
+      aria-label="Menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+<ul class="nav-links">
+  <li><a href="index.html">About</a></li>
+  <li><a href="network.html">Network</a></li>
+  <li><a href="data.html" class="active">Data</a></li>
+  <li><a href="platform.html">Platform</a></li>
+  <li><a href="publications.html">Publications</a></li>
+</ul>
+  </nav>
+
+<main>
+  <!-- PRIVACY GUARDRAILS -->
+  <section class="alt privacy-guardrails">
+    <div class="section-inner">
+      <div class="eyebrow">Privacy Guardrails</div>
+
+      <h2>Data collection follows strict privacy, compliance, and data-use policies</h2>
+
+      <p class="section-lead">
+        PANDAWN data collection is governed by the City of Chicago agreement and associated
+        privacy and compliance requirements. The project is designed to collect only the data
+        needed for the scientific mission while limiting collection of personally identifiable
+        information and restricting access to approved research users.
+      </p>
+
+      <div class="goal-grid privacy-grid">
+        <article class="goal-card">
+          <h3>No audio, genomic, biological, or PII collection</h3>
+          <p>
+            In accordance with Illinois wiretapping laws, audio data is not collected. The system
+            does not collect genomic or biological data, and no personally identifiable information
+            is required for the science or intentionally collected by the project.
+          </p>
+        </article>
+
+        <article class="goal-card">
+          <h3>Camera field-of-view limitations</h3>
+          <p>
+            Cameras are focused on defined areas of interest, such as intersections. Due to the
+            angle of view and deployment configuration, the resulting imagery is insufficient to
+            recognize people’s faces or license plates. This configuration was reviewed and
+            accepted by the Central Department of Energy Institutional Review Board.
+          </p>
+        </article>
+
+        <article class="goal-card">
+          <h3>Limited video and LiDAR collection</h3>
+          <p>
+            Under the current agreements, LiDAR and video data are collected only six times per day
+            for two minutes per collection window for training and evaluation purposes. This
+            represents less than 1% of the day, while radiological and environmental sensor streams
+            are collected continuously.
+          </p>
+        </article>
+
+        <article class="goal-card">
+          <h3>Restricted data access</h3>
+          <p>
+            Data access is initially restricted to approved members of the research teams at ANL,
+            PNNL, and LBNL. Individuals must sign a data-use agreement and comply with its terms
+            and conditions; access may be revoked if those requirements are not followed.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">PANDAWN<span>ops</span></div>
+        <p class="footer-desc">
+          Multi-Sensor Data for Domain-Aware Radiological/Nuclear Detection in Urban Environments. Supported by DOE NNSA NA-22.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://bdc.lbl.gov/" target="_blank" rel="noopener">Berkeley Data Cloud</a>
+        <a href="https://dawn.sagecontinuum.org/nodes" target="_blank" rel="noopener">PANDAWN Portal</a>
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      © PANDAWNOps · Lawrence Berkeley National Laboratory, Argonne National Laboratory, Pacific Northwest National Laboratory
+    </div>
+  </footer>
+</body>
+</html>
