@@ -1,6 +1,6 @@
 # PANDAWNOps Website
 
-This repository contains the public website for **PANDAWNOps**: a city-scale intelligent sensing research platform for multi-sensor, domain-aware radiological/nuclear detection in urban environments.
+This repository contains the public website for **PANDAWNOps**: A city-scale intelligent sensing research platform for multi-sensor, domain-aware radiological/nuclear detection in urban environments.
 
 The site is hosted using **GitHub Pages** at:
 
