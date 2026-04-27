@@ -191,6 +191,71 @@
         </div>
       </div>
     </section>
+
+    <hr class="section-divider">
+    <!-- DATA LABELS -->
+<section class="alt data-labels">
+  <div class="section-inner">
+    <div class="eyebrow">Data Labels</div>
+
+    <h2>Automated labeling for radiological and contextual data products</h2>
+
+    <p class="section-lead">
+      PANDAWN supports automated labeling of radiological and contextual camera data to enable
+      downstream analysis, AI/ML model development, and curated data product generation. Labeled
+      data products are produced at approximately 6.25 GB per node per day and are made available
+      through the Berkeley Data Cloud with approximately one-day latency.
+    </p>
+
+    <div class="goal-grid data-labels-grid">
+      <article class="goal-card">
+        <h3>Radiological labels</h3>
+        <p>
+          Radiological labels are generated using LBNL’s Background Adaptive Radiation Detection
+          package, or BARD. BARD supports in-situ, ab-initio background model learning, training,
+          and updating, along with NMF-based background anomaly detection and isotope identification.
+        </p>
+      </article>
+
+      <article class="goal-card">
+        <h3>Radiological label products</h3>
+        <p>
+          Radiological label products include bin-mode data with 0.5-second integration time,
+          timestamps, count rates, livetimes, calibration information, meteorological context,
+          background anomaly detection metrics, and isotope identification metrics.
+        </p>
+      </article>
+
+      <article class="goal-card">
+        <h3>Camera-based contextual labels</h3>
+        <p>
+          Contextual camera labels are generated using YOLOv10l for object detection and
+          Tryolabs’ Norfair for object tracking. These methods provide frame-level contextual
+          information to support multimodal analysis with radiological observations.
+        </p>
+      </article>
+
+      <article class="goal-card">
+        <h3>Camera label products</h3>
+        <p>
+          Camera label products include frame-by-frame bounding boxes, object classes, confidence
+          levels, and frame-to-frame track identifiers. These labels help characterize activity
+          and context near each sensing location.
+        </p>
+      </article>
+
+      <article class="goal-card">
+        <h3>Monthly curated collections</h3>
+        <p>
+          Data labels for each node are curated into monthly collections on the Berkeley Data
+          Cloud, providing organized label products for analysis, evaluation, and model
+          development.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
 </main>
 
   <footer>
