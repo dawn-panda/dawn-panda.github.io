@@ -562,12 +562,12 @@ footer {
 }
 .footer-brand { font-family: var(--font-mono); font-size: .85rem; color: var(--amber-lt); margin-bottom: .5rem; }
 .footer-brand span { color: rgba(255,255,255,.3); }
-.footer-desc { font-size: .78rem; color: rgba(255,255,255,.4); max-width: 320px; line-height: 1.65; }
+.footer-desc { font-size: 1.1rem; color: rgba(255,255,255,.4); max-width: 320px; line-height: 1.65; }
 .footer-links { display: flex; flex-direction: column; gap: .4rem; }
-.footer-links a { font-size: .8rem; color: rgba(255,255,255,.4); }
+.footer-links a { font-size: 1rem; color: rgba(255,255,255,.4); }
 .footer-links a:hover { color: rgba(255,255,255,.8); }
 .footer-copy {
-  font-size: .73rem; color: rgba(255,255,255,.22);
+  font-size: .80rem; color: rgba(255,255,255,.22);
   margin-top: 1.5rem; padding-top: 1.5rem;
   border-top: 1px solid rgba(255,255,255,.07); text-align: center;
 }
