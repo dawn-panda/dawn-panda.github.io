@@ -16,7 +16,7 @@ The site is hosted using **GitHub Pages** at:
 ├── platform.html           # PANDAWN platform and AI@Edge system
 ├── privacy.html            # Privacy, compliance, governance, and review information
 ├── publications.html       # Publications and related outputs
-├── team.html               # Project team page
+├── team.html               # Project team page (not yet populated - so not linked yet)
 ├── css/
 │   └── style.css           # Shared site-wide CSS
 └── images/
